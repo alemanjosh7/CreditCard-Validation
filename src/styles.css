@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,400;0,900;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Liu+Jian+Mao+Cao&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Muli";
+}
+
+.modal {
+    transition: opacity 0.25s ease;
+}
+
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
+
+.card {
+    transition: .3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.card.active {
+    transform: rotateY(180deg);
+}
+
+.card>div {
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148);
+}
+
+/*Front Card*/
+
+.card .front {
+    width: 100%;
+    background: url(../src/images/bg-tarjeta-03.jpg);
+    background-size: cover;
+}
+
+.front .brand-logo {
+    text-align: right;
+    min-height: 50px;
+}
+
+.front .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 80px;
+}
+
+.front .chip {
+    width: 100%;
+    max-width: 50px;
+}
+
+.front .group .label {
+    @apply text-base text-gray-400 mb-1;
+}
+
+.front .group .number,
+.front .group .name,
+.front .group .expiration {
+    @apply text-white text-xl uppercase
+}
+
+.back {
+    background: url(../src/images/bg-tarjeta-03.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.back .data {
+    @apply mt-14 flex justify-between
+}
+
+.back .data p {
+    @apply mb-0.5
+}
+
+.back .data #sign .sign {
+    background: repeating-linear-gradient(skyblue 0, skyblue 4px, orange 4px, orange 8px);
+}
+
+.back .data #sign .sign {
+    line-height: 33px;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    color: #000;
+    font-size: 30px;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+.container-btn .open-form-btn {
+    box-shadow: 5px 4px 8px rgba(24, 56, 182, 0.4);
+}
+
+.container-btn .open-form-btn.active {
+    transform: rotate(45deg);
+}
+
+.flexbox {
+    @apply flex justify-between
+}
+
+.card-form {
+    padding: 150px 60px 60px 60px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    @apply mb-5
+}
+
+.card-form.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.card-form label {
+    display: block;
+    color: #7d8994;
+    @apply my-1.5 text-sm
+}
+
+.card-form input,
+.card-form select,
+.btn-send {
+    border: 2px solid #CED6E0;
+    padding: 5px 12px;
+    @apply text-base h-10 w-full transition-all my-1.5 rounded
+}
+
+.card-form input:hover,
+.card-form select:hover {
+    border: 2px solid #93BDED;
+}
+
+.card-form input:focus,
+.card-form select:focus {
+    outline: rgb(4, 4, 4);
+    box-shadow: 1px 7px 10px -5px rgba(90, 116, 148, .3);
+}
+
+.card-form input {
+    @apply uppercase
+}
+
+.card-form .group-select {
+    @apply w-full mr-1 relative
+}
+
+.card-form select {
+    -webkit-appearance: none;
+}
+
+.card-form .group-select i {
+    @apply absolute right-4 top-5 transition-all text-blue-600
+}
+
+.card-form .group-select:hover i {
+    @apply text-blue-900
+}
+
+.card-form .btn-send{
+    @apply border-none p-1 text-base text-white bg-blue-600 shadow-xl cursor-pointer
+}
+
+.card-form .btn-send:hover{
+    @apply bg-blue-900
+}
